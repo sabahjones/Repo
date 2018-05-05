@@ -9,17 +9,20 @@
     <br>
     <a href="/logout">logout</a>
 
-<h2>shortlist test</h2>
+  <h3>quotable quotes</h3>
 
     {% for a in allquotes %}
     {% if a not in exclude %}
 
+    <b>{{a.author}}</b>: {{a.text}}
     <br>
-    <b>{{a.author}}</b>: {{a.text}} <br>
     <i>posted by: <a href="/showuser/{{a.user.id}}">{{a.user.name}}</a></i>
     <br>
+    {% if a.user.id == request.session.id %}
+    <a href="/deletequote/{{a.id}}"><button>remove</button></a>
+    {% endif %}
     <a href="addfave/{{a.id}}"><button>add to my list</button></a>
-    <br>
+    <br><br>
 
     {% endif %}
     {% endfor %}
@@ -34,9 +37,6 @@
       <br>
       <br>
       {% endfor %}
-
-
-
 
 
     <form action="/addquote" method = "POST">

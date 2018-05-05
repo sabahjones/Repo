@@ -67,8 +67,8 @@ def login(request):
 
 def quotes(request):
 
-    favequotes = Favorite.objects.filter(user=request.session['id'])
     allquotes = Quote.objects.all()
+    favequotes = Favorite.objects.filter(user=request.session['id'])
     exclude = {}
 
     for f in favequotes:
@@ -130,12 +130,9 @@ def showuser(request, id):
 
     return render (request, 'firstapp/showuser.html', context)
 
-
-
-
-
-
-
+def deletequote(request, id):
+    Quote.objects.filter(id=id).delete()
+    return redirect('/quotes')
 
 def logout(request):
     request.session.clear()
