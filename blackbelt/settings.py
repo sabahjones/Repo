@@ -76,8 +76,12 @@ WSGI_APPLICATION = 'blackbelt.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'd2erqbgptahaqs',
+        'USER': 'fozzqcdfgqiiak',
+        'PASSWORD': '5ba50e89b66feaf275b7b902d0529eb79906ef39d2b73e56ba43d64b62a7c237',
+        'HOST': 'ec2-107-21-103-146.compute-1.amazonaws.com',
+        'PORT': '5432'
     }
 }
 
